@@ -13,6 +13,7 @@ import { useNavigation } from "@react-navigation/native";
 import { StackNavigationProp } from '@react-navigation/stack'
 import { rootstackParamList } from "../../../../App";
 import useViewModel from './ViewModel';
+import { CustomTextInput } from "../../components/CustomTextInput";
 
 export const HomeScreen = () => {
 
@@ -38,34 +39,25 @@ export const HomeScreen = () => {
       <View style={styles.form}>
         <Text style={styles.formText}>INGRESAR</Text>
 
-        <View style={styles.formInput}>
-          <Image
-            style={styles.formIcon}
-            source={require("../../../../assets/email.png")}
-          />
-          <TextInput
-            style={styles.formTextInput}
-            placeholder="Correo Electronico"
-            keyboardType="email-address"
-            value={email}
-            onChangeText={text => onChange('email', text )}
-          />
-        </View>
+        <CustomTextInput
+          image={require('../../../../assets/email.png')}
+          placeholder='Correo electronico'
+          keyboardType='email-address'
+          property='email'
+          onChangeText={ onChange}
+          value={email}
+        />
 
-        <View style={styles.formInput}>
-          <Image
-            style={styles.formIcon}
-            source={require("../../../../assets/password.png")}
-          />
-          <TextInput
-            style={styles.formTextInput}
-            placeholder="Contraseña"
-            keyboardType="default"
-            secureTextEntry={true}
-            value={password}
-            onChangeText={text => onChange('password', text )}
-          />
-        </View>
+
+        <CustomTextInput
+          image={require('../../../../assets/password.png')}
+          placeholder='Contraseña'
+          keyboardType='default'
+          secureTextEntry={true}
+          property='password'
+          onChangeText={ onChange}
+          value={password}
+        />
 
         <View style={{ marginTop: 30 }}>
           <RoundedButton
