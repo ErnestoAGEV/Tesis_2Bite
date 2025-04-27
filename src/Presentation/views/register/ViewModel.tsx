@@ -1,30 +1,28 @@
-import React, {useState} from 'react'
+import React, { useState } from "react";
 
 export const RegisterViewModel = () => {
+  const [values, setValues] = useState({
+    name: "",
+    lastname: "",
+    phone: "",
+    email: "",
+    password: "",
+    confirmPassword: "",
+  });
 
-    const [values, setValues] = useState({
-        name: '',
-        lastname: '',
-        phone: '',
-        email: '',
-        password: '',
-        confirmPassword: '',
-    });
+  const onChange = (property: string, value: any) => {
+    setValues({ ...values, [property]: value });
+  };
 
-    const onChange = (property: string, value: any) => {
-
-        setValues ({ ...values, [property]: value})
-    }
-
-    const register = () => {
-        console.log(JSON.stringify(values));
-    }
+  const register = () => {
+    console.log(JSON.stringify(values));
+  };
 
   return {
-     ...values,
-     onChange,
-     register,
-  }
-}
+    ...values,
+    onChange,
+    register,
+  };
+};
 
-export default RegisterViewModel
+export default RegisterViewModel;

@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, { useState } from "react";
 import {
   Image,
   View,
@@ -10,15 +10,14 @@ import {
 } from "react-native";
 import { RoundedButton } from "../../../Presentation/components/RoundedButton";
 import { useNavigation } from "@react-navigation/native";
-import { StackNavigationProp } from '@react-navigation/stack'
+import { StackNavigationProp } from "@react-navigation/stack";
 import { rootstackParamList } from "../../../../App";
-import useViewModel from './ViewModel';
+import useViewModel from "./ViewModel";
 import { CustomTextInput } from "../../components/CustomTextInput";
+import styles from './Styles';
 
 export const HomeScreen = () => {
-
-  const {email, password,onChange } = useViewModel();
-
+  const { email, password, onChange } = useViewModel();
 
   const navigation = useNavigation<StackNavigationProp<rootstackParamList>>();
 
@@ -31,7 +30,10 @@ export const HomeScreen = () => {
       />
 
       <View style={styles.logoContainer}>
-        <Image source={require("../../../../assets/logo.png")} style={styles.logoImage} />
+        <Image
+          source={require("../../../../assets/logo.png")}
+          style={styles.logoImage}
+        />
 
         <Text style={styles.logoText}>2Bite</Text>
       </View>
@@ -40,31 +42,30 @@ export const HomeScreen = () => {
         <Text style={styles.formText}>INGRESAR</Text>
 
         <CustomTextInput
-          image={require('../../../../assets/email.png')}
-          placeholder='Correo electronico'
-          keyboardType='email-address'
-          property='email'
-          onChangeText={ onChange}
+          image={require("../../../../assets/email.png")}
+          placeholder="Correo electronico"
+          keyboardType="email-address"
+          property="email"
+          onChangeText={onChange}
           value={email}
         />
 
-
         <CustomTextInput
-          image={require('../../../../assets/password.png')}
-          placeholder='Contraseña'
-          keyboardType='default'
+          image={require("../../../../assets/password.png")}
+          placeholder="Contraseña"
+          keyboardType="default"
           secureTextEntry={true}
-          property='password'
-          onChangeText={ onChange}
+          property="password"
+          onChangeText={onChange}
           value={password}
         />
 
         <View style={{ marginTop: 30 }}>
           <RoundedButton
             text="ENTRAR"
-            onPress={() => { 
-              console.log('Email:' + email);
-              console.log('Password:' + password);
+            onPress={() => {
+              console.log("Email:" + email);
+              console.log("Password:" + password);
             }}
           />
         </View>
@@ -72,99 +73,13 @@ export const HomeScreen = () => {
         <View style={styles.formRegister}>
           <Text>¿No tienes cuenta?</Text>
 
-          <TouchableOpacity onPress={() => navigation.navigate('RegisterScreen')}>
+          <TouchableOpacity
+            onPress={() => navigation.navigate("RegisterScreen")}
+          >
             <Text style={styles.formRegisterText}>Registrate</Text>
           </TouchableOpacity>
-
         </View>
       </View>
     </View>
   );
 };
-
-//HOT RELOAD
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: "black",
-  },
-
-  //estilos de la imagen de fondo
-  ImageBackground: {
-    width: "100%",
-    height: "100%",
-    opacity: 0.7,
-    bottom: "30%",
-  },
-
-  //estilos del form de login
-  form: {
-    width: "100%",
-    height: "40%",
-    backgroundColor: "white",
-    position: "absolute",
-    bottom: 0,
-    borderTopLeftRadius: 40,
-    borderTopRightRadius: 40,
-    padding: 30,
-  },
-
-  formText: {
-    fontWeight: "bold",
-    fontSize: 16,
-  },
-
-  formIcon: {
-    width: 25,
-    height: 25,
-    marginTop: 5,
-  },
-
-  formInput: {
-    flexDirection: "row",
-    marginTop: 30,
-  },
-
-  formTextInput: {
-    flex: 1,
-    borderBottomWidth: 1,
-    borderBottomColor: "#EBEBEB",
-    marginLeft: 15,
-  },
-
-  formRegister: {
-    flexDirection: "row",
-    justifyContent: "center",
-    marginTop: 30,
-  },
-
-  formRegisterText: {
-    fontStyle: "italic",
-    color: "orange",
-    borderBottomWidth: 1,
-    borderBottomColor: "orange",
-    fontWeight: "bold",
-    marginLeft: 10,
-  },
-
-  //estilos del logo
-  logoContainer: {
-    position: "absolute",
-    alignSelf: "center",
-    top: "15%",
-  },
-
-  logoImage: {
-    width: 100,
-    height: 100,
-  },
-
-  logoText: {
-    color: "white",
-    textAlign: "center",
-    fontSize: 30,
-    marginTop: 10,
-    fontWeight: "bold",
-  },
-});
