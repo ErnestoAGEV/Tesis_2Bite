@@ -1,12 +1,10 @@
-import React from "react";
+import React ,{useEffect} from "react";
 import {
   View,
   Text,
   Image,
-  TextInput,
+  ScrollView,
   ToastAndroid,
-  TouchableOpacity,
-  StyleSheet,
 } from "react-native";
 import { RoundedButton } from "../../../Presentation/components/RoundedButton";
 import useViewModel from "./ViewModel";
@@ -21,9 +19,17 @@ export const RegisterScreen = () => {
     email,
     password,
     confirmPassword,
+    errorMessage,
     onChange,
     register,
   } = useViewModel();
+
+  useEffect(() => {
+    if(errorMessage !== ''){
+    ToastAndroid.show(errorMessage, ToastAndroid.LONG);
+    }
+  }, [errorMessage])
+  
 
   return (
     //Se comporta como si fuera una columna si no le damos orientacion
@@ -43,6 +49,9 @@ export const RegisterScreen = () => {
       </View>
 
       <View style={styles.form}>
+        
+        <ScrollView>
+        
         <Text style={styles.formText}>REGISTRARSE</Text>
 
         <CustomTextInput
@@ -104,6 +113,9 @@ export const RegisterScreen = () => {
         <View style={{ marginTop: 30 }}>
           <RoundedButton text="CONFIRMAR" onPress={() => register()} />
         </View>
+
+        </ScrollView>
+
       </View>
     </View>
   );
