@@ -9,7 +9,9 @@ import {
   TouchableOpacity,
 } from "react-native";
 import { RoundedButton } from "../../../Presentation/components/RoundedButton";
+// @ts-ignore
 import { useNavigation } from "@react-navigation/native";
+// @ts-ignore
 import { StackNavigationProp } from "@react-navigation/stack";
 import { rootstackParamList } from "../../../../App";
 import useViewModel from "./ViewModel";
@@ -35,7 +37,7 @@ export const HomeScreen = () => {
           style={styles.logoImage}
         />
 
-        <Text style={styles.logoText}>2Bite</Text>
+        <Text style={styles.logoText}>2Bites</Text>
       </View>
 
       <View style={styles.form}>
