@@ -33,11 +33,11 @@ export const HomeScreen = () => {
 
       <View style={styles.logoContainer}>
         <Image
-          source={require("../../../../assets/logo.png")}
+          source={require("../../../../assets/2Bite_1.png")}
           style={styles.logoImage}
         />
 
-        <Text style={styles.logoText}>2Bites</Text>
+        <Text style={styles.logoText}>BIENVENIDO</Text>
       </View>
 
       <View style={styles.form}>
