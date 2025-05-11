@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import {
   Image,
   View,
@@ -19,9 +19,16 @@ import { CustomTextInput } from "../../components/CustomTextInput";
 import styles from './Styles';
 
 export const HomeScreen = () => {
-  const { email, password, onChange } = useViewModel();
+  const { email, password,errorMessage, onChange, login } = useViewModel();
 
   const navigation = useNavigation<StackNavigationProp<rootstackParamList>>();
+
+  useEffect(() => {
+   if(errorMessage !== '') {
+    ToastAndroid.show(errorMessage, ToastAndroid.LONG);
+   }
+  }, [errorMessage])
+  
 
   return (
     //Se comporta como si fuera una columna si no le damos orientacion
@@ -64,11 +71,8 @@ export const HomeScreen = () => {
 
         <View style={{ marginTop: 30 }}>
           <RoundedButton
-            text="ENTRAR"
-            onPress={() => {
-              console.log("Email:" + email);
-              console.log("Password:" + password);
-            }}
+            text="LOGIN"
+            onPress={() =>login() }
           />
         </View>
 
