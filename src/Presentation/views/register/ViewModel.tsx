@@ -18,31 +18,31 @@ const RegisterViewModel = () => {
     });
     const [file, setFile] = useState<ImagePicker.ImageInfo>()
 
-    const takePhoto = async () => {
-    let result = await ImagePicker.launchCameraAsync({
-      mediaTypes: ['images'],
-      allowsEditing: true,
-      quality: 1
-    });
-
-    if (!result.canceled) {
-      onChange('image', result.assets[0].uri);
-      setFile(result.assets[0]);
-    }
-  }
-    
     const pickImage = async () => {
-    let result = await ImagePicker.launchImageLibraryAsync({
-      mediaTypes: ['images'],
-      allowsEditing: true,
-      quality: 1
-    });
+        let result = await ImagePicker.launchImageLibraryAsync({
+            mediaTypes: ImagePicker.MediaTypeOptions.All,
+            allowsEditing: true,
+            quality: 1
+        });
 
-    if (!result.canceled) {
-      onChange('image', result.assets[0].uri);
-      setFile(result.assets[0]);
+        if (!result.cancelled) {
+            onChange('image', result.uri);
+            setFile(result);
+        }
     }
-  }
+    
+    const takePhoto = async () => {
+        let result = await ImagePicker.launchCameraAsync({
+            mediaTypes: ImagePicker.MediaTypeOptions.All,
+            allowsEditing: true,
+            quality: 1
+        });
+
+        if (!result.cancelled) {
+            onChange('image', result.uri);
+            setFile(result);
+        }
+    }
 
     const onChange = (property: string, value: any) => {
         setValues({ ...values, [property]: value })
