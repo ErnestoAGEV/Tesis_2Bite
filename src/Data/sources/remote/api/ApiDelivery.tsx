@@ -1,10 +1,19 @@
 import axios from 'axios';
 
 const ApiDelivery = axios.create({
-    baseURL: 'http://192.168.1.125:3000/api',
+    baseURL: 'http://192.168.100.70/api',
     headers: {
         'Content-Type': 'application/json'
     }
 })
 
-export {ApiDelivery}
+
+const ApiDeliveryForImage = axios.create({
+    baseURL: 'http://192.168.100.70/api',
+    headers: {
+        'Content-Type': 'multipart/form-data',
+        'accept': 'application/json'
+    }
+})
+
+export {ApiDelivery, ApiDeliveryForImage}
