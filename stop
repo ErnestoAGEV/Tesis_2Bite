@@ -1,0 +1,15 @@
+[33ma9d9743[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmain[m[33m, [m[1;31morigin/main[m[33m)[m Implementacion de versiones compatibles intento
+[33md620e0f[m intento de subir imagen a google cloud y actualizacion de sdk de expo
+[33m407b1d7[m Carga de imagenes desde la galeria o toma de imagenes con tu camara
+[33m50bb1bb[m Cambio en Local/Remote useCases y tambien nueva patanlla de información de sesion
+[33m5866208[m Distribución de datos entre local y remoto , creacion de useCases Get and Save para LocalStorage
+[33mecd373e[m Implementacion de autenticacion en login con backend
+[33m406b38d[m Implementacion de nuevo logo e intento de actualizacion de la version de expo
+[33m647a008[m Implementacion de view model con registro en el backend
+[33m1f9a779[m Implementacion de coneccion con la bd
+[33m7b489e0[m solucion de errores
+[33m93bb822[m Creacion de componente de inputs y reemplazo
+[33m7d9649b[m Implementacion de useState y ViewModels
+[33m3878482[m Implementacion de pantalla de registro
+[33mca434eb[m Implementacion de Login
+[33m56a057e[m commit inicial
